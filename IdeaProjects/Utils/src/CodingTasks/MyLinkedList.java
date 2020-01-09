@@ -130,7 +130,7 @@ class LinkedListOperation {
 
     @Override
     public String toString() {
-        return super.toString();
+        return currentObject.toString();
     }
 }
 
@@ -143,11 +143,6 @@ class Element {
        pointer = null;
     }
 
-    public Element(Object value, Element pointer) {
-       this.value = value;
-       this.pointer = pointer;
-
-    }
 
     public Element getPointer() {
         return pointer;
@@ -167,116 +162,6 @@ class Element {
 
     @Override
     public String toString() {
-        return super.toString();
+        return  super.toString();
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
