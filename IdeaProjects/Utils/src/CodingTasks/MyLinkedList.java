@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class MyLinkedList {
       public static void main(String[] args) {
-          Object[] list = new Object[]{"java", 1, 2, "xml"};
+          Object[] list = new Object[]{"java", 1, 2, 4, "xml"};
 
           LinkedListOperation linkedList = new LinkedListOperation();
 
@@ -64,6 +64,7 @@ class LinkedListOperation {
     public void append(Object item) {
         Element newObject = new Element(item);
         nextObject.setPointer(newObject);
+        nextObject = newObject;
         counter ++;
 
     }
