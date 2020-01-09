@@ -43,6 +43,7 @@ public class MyLinkedList {
           Object deletedItem = input.next();
 
           linkedList.delete(deletedItem);
+          System.out.println("Updated linked list: " + linkedList.toString()); 
 
 
 
@@ -114,7 +115,9 @@ class LinkedListOperation {
 
          }
 
-         currentObject.setPointer(currentObject.getPointer());
+         currentObject.setPointer(currentObject.getPointer().getPointer());
+
+         counter--;
 
 
 
