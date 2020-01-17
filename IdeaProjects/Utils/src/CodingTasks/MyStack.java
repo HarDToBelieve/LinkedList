@@ -19,6 +19,8 @@ public class MyStack {
 
         System.out.println(stack.toString());
 
+        System.out.println("The most recent item is: " + stack.peek());
+
     }
 }
 
@@ -46,6 +48,11 @@ class StackOperation {
 
     public void pop() {
         head = previousHead;
+    }
+
+
+    public Element peek() {
+        return head;
     }
 
     @Override
