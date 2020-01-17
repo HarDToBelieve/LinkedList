@@ -20,6 +20,8 @@ public class MyQueue  {
 
         System.out.println(queue.toString());
 
+        System.out.println("The head of the queue: " + queue.peek());
+
 
     }
 
@@ -66,6 +68,10 @@ class QueueOperations {
         else {
             System.out.println("Unable to remove items");
         }
+    }
+
+    public Element peek() {
+        return head;
     }
 
     @Override
