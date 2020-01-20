@@ -2,6 +2,7 @@ package CodingTasks;
 
 
 //Stack implementation with Linked List
+
 public class MyStack {
     public static void main (String[] args) {
         Object[] items = new Object[] {"xml", 1, 2, "java"};
@@ -25,46 +26,54 @@ public class MyStack {
 }
 
 class StackOperation {
-    Element head;
-    Element previousHead;
-
+    Element top;
+    int counter;
+    Element topElement;
 
     public StackOperation() {
-        head = null;
+        top = null;
+        counter = 0;
     }
 
     public void push(Object i) {
         Element newObject = new Element(i);
+        newObject.setPointer(top);
+        top = newObject;
+        counter++;
 
-        if (head == null) {
-            head = newObject;
-        }
-        else {
-           previousHead = head;
-           head = newObject;
-           head.setPointer(previousHead);
-        }
     }
+
 
     public void pop() {
-        head = previousHead;
+
+        top = top.getPointer();
+        counter--;
+
     }
 
 
-    public Element peek() {
-        return head;
+    public Object peek() {
+        if (!isEmpty()) {
+
+           return top.getValue().toString();
+
+        }
+        return null;
+    }
+
+    public Boolean isEmpty() {
+        return counter == 0;
     }
 
     @Override
     public String toString() {
         String output = "";
 
-        while (previousHead != null) {
-            output += previousHead.getValue().toString() + " ";
-            previousHead = previousHead.getPointer();
+        while (top != null) {
+            output += top.getValue().toString() + " ";
+            top = top.getPointer();
         }
 
         return output;
     }
 }
-
