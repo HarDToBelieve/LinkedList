@@ -17,6 +17,8 @@ public class MyStack {
 
         stack.pop();
 
+        stack.push("python");
+
 
         System.out.println(stack.toString());
 
@@ -26,19 +28,19 @@ public class MyStack {
 }
 
 class StackOperation {
-    Element top;
-    int counter;
     Element topElement;
+    int counter;
+
 
     public StackOperation() {
-        top = null;
+        topElement = null;
         counter = 0;
     }
 
     public void push(Object i) {
         Element newObject = new Element(i);
-        newObject.setPointer(top);
-        top = newObject;
+        newObject.setPointer(topElement);
+        topElement = newObject;
         counter++;
 
     }
@@ -46,7 +48,7 @@ class StackOperation {
 
     public void pop() {
 
-        top = top.getPointer();
+        topElement = topElement.getPointer();
         counter--;
 
     }
@@ -55,7 +57,7 @@ class StackOperation {
     public Object peek() {
         if (!isEmpty()) {
 
-           return top.getValue().toString();
+           return topElement.getValue();
 
         }
         return null;
@@ -65,13 +67,16 @@ class StackOperation {
         return counter == 0;
     }
 
+
+
     @Override
     public String toString() {
         String output = "";
+        Element temp = topElement;
 
-        while (top != null) {
-            output += top.getValue().toString() + " ";
-            top = top.getPointer();
+        while (temp != null) {
+            output += temp.getValue().toString() + " ";
+            temp = temp.getPointer();
         }
 
         return output;
