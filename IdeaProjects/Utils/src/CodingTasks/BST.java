@@ -15,15 +15,11 @@ public class BST {
 
 class BinarySearchTree {
     Node root;
-    Node leaf;
-    Node parent;
 
 
 
     public BinarySearchTree() {
         root = null;
-        parent = null;
-
     }
 
     public void insert(int value) {
@@ -31,36 +27,35 @@ class BinarySearchTree {
 
         if(root == null) {
             root  = newElement;
-            leaf = root;
             root.setLevel(0);
-
-
         }
 
         else {
-           while(leaf != null) {
-               parent = leaf;
-               if(value < leaf.getValue()) {
-                   leaf = leaf.getLeft();
+            Node current = root;
+            Node parent = null;
+            while(current != null) {
+                parent = current;
+                if(value < current.getValue()) {
+                    current = current.getLeft();
 
 
-               }
-               else {
-                   leaf = leaf.getRight();
+                }
+                else {
+                    current = current.getRight();
 
-               }
-           }
+                }
+            }
 
-           if(value < parent.getValue()) {
-               parent.setLeft(newElement);
-               parent.getLeft().setLevel(parent.getLevel()+1);
+            if(value < parent.getValue()) {
+                parent.setLeft(newElement);
+                parent.getLeft().setLevel(parent.getLevel()+1);
 
-           }
-           else {
-               parent.setRight(newElement);
-               parent.getRight().setLevel(parent.getLevel()+1);
+            }
+            else {
+                parent.setRight(newElement);
+                parent.getRight().setLevel(parent.getLevel()+1);
 
-           }
+            }
 
         }
 
@@ -68,19 +63,19 @@ class BinarySearchTree {
     }
 
     public String lookUp(int value) {
-        leaf = root;
+        Node current = root;
 
-        while (leaf != null) {
+        while (current != null) {
 
-            if (value == leaf.getValue()) {
-                return "Found the value at level " + leaf.getLevel();
+            if (value == current.getValue()) {
+                return "Found the value at level " + current.getLevel();
 
             }
-            if (value < leaf.getValue()) {
-                leaf = leaf.getLeft();
+            if (value < current.getValue()) {
+                current = current.getLeft();
             }
             else {
-                leaf = leaf.getRight();
+                current = current.getRight();
             }
         }
 
